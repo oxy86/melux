@@ -1,0 +1,11 @@
+Melux 1.0
+
+Author : Dimitris Kalamaras
+Site   : http://dimitris.apeiro.gr
+Licence: GPL3
+
+Melux is a Bash script which automates the creation of custom Ubuntu ISO images. It does nearly everything you would ever need to do: creates necessary working directories, mount-loops the original ubuntu iso, copies its contents, mount-loops the squashfs file, copies its contents in a new dir and chroots in it where it modifies sources.lists and resolv.conf so that the chroot system is usable, and then presents a nice menu for the user to select which package groups to add. By default, these are my favorite packages for math, multimedia and development, but you can easily modify lines 24-39 to specify your packages.
+
+Finally, melux creates the new squashfs file, updates all manifest files, and then creates your new custom Ubuntu iso. All these in under 400 lines of code, with full-blown ANSI colors (just for all times sake!), with minimal user interaction. The only three things the user (that’s you!) needs to specify are: the base work dir (where you must have copied the original Ubuntu iso), the ubuntu release (which must be the same release you run on, of course), and the custom iso filename.
+
+Update: Of course, your running Ubuntu system should be connected to the Internet or else melux won’t be able to download and install the extra packages to your custom Ubuntu Live CD/DVD system. Note also that melux by default adds complete Greek language support and removes other languages. You can disable that by commenting out line 308.
