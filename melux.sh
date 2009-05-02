@@ -87,7 +87,7 @@ if [ -f /usr/bin/mksquashfs ]; then
 	
 else
 	echo -e $red 'mksquashfs not found! Installing package...';
-	sudo apt-get install squashfs-tool
+	sudo apt-get install squashfs-tools
 fi
 
 echo -n -e $black'unmounting old mounts ...'; $normal;
