@@ -35,7 +35,7 @@ multimedia_packages='gstreamer0.10-plugins-ugly gstreamer0.10-plugins-ugly-multi
 math_packages='octave3.0 kig ygraph qtoctave wxmaxima lybniz';
 devel_packages='libqt4-assistant libqt4-gui qt4-doc-html qt4-qtconfig qt4-demos libqt4-webkit libqt4-dev qt4-designer qdevelop vim subversion bzr mc';
 greek_packages='language-support-el language-pack-el myspell-dictionary-el language-pack-gnome-el';
-
+kde_packages='kubuntu-desktop';
 download_packages='virtualbox-ose wine squid bootchart flashplugin-nonfree unrar';
 
 
@@ -61,6 +61,7 @@ choose_packages() {
 	echo -n -e $red'4.'; echo -e $black ' Multimedia   ...';$normal;
 	echo -n -e $red'5.'; echo -e $black ' Mathematics  ...';$normal;
         echo -n -e $red'6.'; echo -e $black ' Media center ...';$normal;
+	echo -n -e $red'7.'; echo -e $black ' KDE desktop  ...';$normal;
         echo -n -e $red'9.'; echo -e $black ' All          ...';$normal;
 	echo -n -e $red'0.'; echo -e $black ' DONE!        ...';$normal;
 	echo -n -e $red'> '; $normal;
@@ -293,6 +294,12 @@ while [  $answer -gt '0' ]; do
         6)
         sudo chroot $new_squash_dir/ apt-get install $mce_packages;
           ;;
+	7)
+	sudo chroot $new_squash_dir/ apt-get install $kde_packages;
+	;;
+	8)
+	sudo chroot $new_squash_dir/ apt-get install $kde_packages $desktop_packages $multimedia_packages $devel_packages;
+	;;
         9)
         sudo chroot $new_squash_dir/ apt-get install $build_packages $desktop_packages $multimedia_packages $devel_packages $math_packages $mce_packages;
           ;;
